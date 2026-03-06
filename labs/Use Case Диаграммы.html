@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/timof/Downloads/usecases_flowcharts.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Use Case Диаграммы</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f0f0f0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  .page {
+    background: white;
+    padding: 30px 40px 40px;
+    border: 1px solid #ccc;
+    width: 500px;
+  }
+  .chart-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     UC1 — Расчёт лизингового платежа
+     ═══════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chart-title">Use Case 1 — Расчёт лизингового платежа</div>
+  <svg width="420" height="700" viewBox="0 0 420 700">
+    <defs>
+      <marker id="a1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0,0 8,3 0,6" fill="#555"></polygon>
+      </marker>
+    </defs>
+
+    <!-- СТАРТ -->
+    <ellipse cx="210" cy="34" rx="64" ry="24" fill="#e2e2e2" stroke="#999" stroke-width="1.3"></ellipse>
+    <text x="210" y="39" text-anchor="middle" font-size="13" fill="#111">Старт</text>
+
+    <line x1="210" y1="58" x2="210" y2="84" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></line>
+
+    <!-- BOX 1 -->
+    <rect x="80" y="86" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="106" text-anchor="middle" font-size="12" fill="#111">Открыть главную страницу</text>
+    <text x="210" y="123" text-anchor="middle" font-size="12" fill="#111">платформы</text>
+
+    <line x1="210" y1="134" x2="210" y2="160" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></line>
+
+    <!-- BOX 2 -->
+    <rect x="80" y="162" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="182" text-anchor="middle" font-size="12" fill="#111">Перейти в раздел</text>
+    <text x="210" y="199" text-anchor="middle" font-size="12" fill="#111">«Калькулятор лизинга»</text>
+
+    <line x1="210" y1="210" x2="210" y2="236" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></line>
+
+    <!-- DIAMOND: Модель найдена? centre=(210,270) -->
+    <polygon points="210,238 300,272 210,306 120,272" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></polygon>
+    <text x="210" y="268" text-anchor="middle" font-size="12" fill="#111">Модель</text>
+    <text x="210" y="284" text-anchor="middle" font-size="12" fill="#111">найдена?</text>
+
+    <!-- НЕТ: right(300,272) → вправо до x=370 → вниз до y=348 → влево до x=342 -->
+    <polyline points="300,272 370,272 370,348 342,348" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></polyline>
+    <text x="303" y="265" font-size="11" fill="#555">нет</text>
+
+    <!-- BOX: Ввести вручную  x=230..342 y=330..374 -->
+    <rect x="80" y="330" width="260" height="44" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="349" text-anchor="middle" font-size="11" fill="#111">Ввести стоимость</text>
+    <text x="210" y="365" text-anchor="middle" font-size="11" fill="#111">автомобиля вручную</text>
+
+    <!-- из box вручную: bottom(286,374) → вниз до y=414 → влево до x=342 -->
+    <polyline points="210,374 210,395" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></polyline>
+
+    <!-- ДА: left(120,272) → влево до x=44 → вниз до y=414 → вправо до x=78 -->
+    <polyline points="120,272 44,272 44,414 80,414" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></polyline>
+    <text x="48" y="265" font-size="11" fill="#555">да</text>
+
+    <!-- BOX 3: Ввести данные y=396 -->
+    <rect x="80" y="396" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="416" text-anchor="middle" font-size="12" fill="#111">Ввести данные и нажать</text>
+    <text x="210" y="433" text-anchor="middle" font-size="12" fill="#111">«Рассчитать»</text>
+
+    <line x1="210" y1="444" x2="210" y2="470" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></line>
+
+    <!-- BOX 4 -->
+    <rect x="80" y="472" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="492" text-anchor="middle" font-size="12" fill="#111">Платформа отображает</text>
+    <text x="210" y="509" text-anchor="middle" font-size="12" fill="#111">платёж и список компаний</text>
+
+    <line x1="210" y1="520" x2="210" y2="546" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></line>
+
+    <!-- BOX 5 -->
+    <rect x="80" y="548" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="568" text-anchor="middle" font-size="12" fill="#111">Выбрать лизинговую</text>
+    <text x="210" y="585" text-anchor="middle" font-size="12" fill="#111">компанию и подать заявку</text>
+
+    <line x1="210" y1="596" x2="210" y2="622" stroke="#555" stroke-width="1.4" marker-end="url(#a1)"></line>
+
+    <!-- КОНЕЦ -->
+    <ellipse cx="210" cy="646" rx="64" ry="24" fill="#e2e2e2" stroke="#999" stroke-width="1.3"></ellipse>
+    <text x="210" y="651" text-anchor="middle" font-size="13" fill="#111">Конец</text>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     UC2 — Подача онлайн-заявки
+     ═══════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chart-title">Use Case 2 — Подача онлайн-заявки на лизинг</div>
+  <svg width="420" height="810" viewBox="0 0 420 810">
+    <defs>
+      <marker id="a2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0,0 8,3 0,6" fill="#555"></polygon>
+      </marker>
+    </defs>
+
+    <!-- СТАРТ -->
+    <ellipse cx="210" cy="34" rx="64" ry="24" fill="#e2e2e2" stroke="#999" stroke-width="1.3"></ellipse>
+    <text x="210" y="39" text-anchor="middle" font-size="13" fill="#111">Старт</text>
+
+    <line x1="210" y1="58" x2="210" y2="84" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+
+    <!-- BOX 1 -->
+    <rect x="80" y="86" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="106" text-anchor="middle" font-size="12" fill="#111">Нажать «Оставить заявку»</text>
+    <text x="210" y="123" text-anchor="middle" font-size="12" fill="#111">на карточке компании</text>
+
+    <line x1="210" y1="134" x2="210" y2="160" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+
+    <!-- DIAMOND: Есть аккаунт? centre=(210,196) -->
+    <polygon points="210,162 300,196 210,230 120,196" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></polygon>
+    <text x="210" y="192" text-anchor="middle" font-size="12" fill="#111">Есть</text>
+    <text x="210" y="208" text-anchor="middle" font-size="12" fill="#111">аккаунт?</text>
+
+    <!-- НЕТ: right(300,196) → x=370 → y=278 → x=342 -->
+    <polyline points="300,196 370,196 370,278 342,278" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></polyline>
+    <text x="303" y="189" font-size="11" fill="#555">нет</text>
+
+    <!-- BOX: Зарегистрироваться  x=230..342 y=260..304 -->
+    <rect x="80" y="260" width="260" height="44" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="278" text-anchor="middle" font-size="11" fill="#111">Зарегистрироваться</text>
+    <text x="210" y="295" text-anchor="middle" font-size="11" fill="#111">по номеру телефона</text>
+
+    <!-- из регистрации → y=344 → x=342 к box заполнить -->
+    <polyline points="210,304 210,324" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></polyline>
+
+    <!-- ДА: left(120,196) → x=44 → y=344 → x=78 -->
+    <polyline points="120,196 44,196 44,344 80,344" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></polyline>
+    <text x="48" y="189" font-size="11" fill="#555">да</text>
+
+    <!-- BOX: Заполнить форму y=326 -->
+    <rect x="80" y="326" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="346" text-anchor="middle" font-size="12" fill="#111">Заполнить форму и загрузить</text>
+    <text x="210" y="363" text-anchor="middle" font-size="12" fill="#111">необходимые документы</text>
+
+    <line x1="210" y1="374" x2="210" y2="400" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+
+    <!-- DIAMOND: Документы загружены? centre=(210,436) -->
+    <polygon points="210,402 300,436 210,470 120,436" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></polygon>
+    <text x="210" y="432" text-anchor="middle" font-size="12" fill="#111">Документы</text>
+    <text x="210" y="448" text-anchor="middle" font-size="12" fill="#111">загружены?</text>
+
+    <!-- НЕТ: right(300,436) → x=384 → y=342 → x=342 (назад к box заполнить) -->
+    <polyline points="300,436 384,436 384,342 342,342" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></polyline>
+    <text x="303" y="429" font-size="11" fill="#555">нет</text>
+
+    <!-- ДА: bottom(210,470) → y=496 -->
+    <line x1="210" y1="470" x2="210" y2="496" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+    <text x="216" y="486" font-size="11" fill="#555">да</text>
+
+    <!-- BOX: Согласиться и отправить y=498 -->
+    <rect x="80" y="498" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="518" text-anchor="middle" font-size="12" fill="#111">Согласиться с условиями</text>
+    <text x="210" y="535" text-anchor="middle" font-size="12" fill="#111">и отправить заявку</text>
+
+    <line x1="210" y1="546" x2="210" y2="572" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+
+    <!-- BOX: Получить уведомление y=574 -->
+    <rect x="80" y="574" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="594" text-anchor="middle" font-size="12" fill="#111">Получить уведомление</text>
+    <text x="210" y="611" text-anchor="middle" font-size="12" fill="#111">на email / телефон</text>
+
+    <line x1="210" y1="622" x2="210" y2="648" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+
+    <!-- BOX: Статус y=650 -->
+    <rect x="80" y="650" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="670" text-anchor="middle" font-size="12" fill="#111">Статус «На рассмотрении»</text>
+    <text x="210" y="687" text-anchor="middle" font-size="12" fill="#111">в личном кабинете</text>
+
+    <line x1="210" y1="698" x2="210" y2="724" stroke="#555" stroke-width="1.4" marker-end="url(#a2)"></line>
+
+    <!-- КОНЕЦ -->
+    <ellipse cx="210" cy="748" rx="64" ry="24" fill="#e2e2e2" stroke="#999" stroke-width="1.3"></ellipse>
+    <text x="210" y="753" text-anchor="middle" font-size="13" fill="#111">Конец</text>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     UC3 — Сравнение предложений
+     ═══════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chart-title">Use Case 3 — Сравнение предложений лизинговых компаний</div>
+  <svg width="420" height="750" viewBox="0 0 420 750">
+    <defs>
+      <marker id="a3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0,0 8,3 0,6" fill="#555"></polygon>
+      </marker>
+    </defs>
+
+    <!-- СТАРТ -->
+    <ellipse cx="210" cy="34" rx="64" ry="24" fill="#e2e2e2" stroke="#999" stroke-width="1.3"></ellipse>
+    <text x="210" y="39" text-anchor="middle" font-size="13" fill="#111">Старт</text>
+
+    <line x1="210" y1="58" x2="210" y2="84" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></line>
+
+    <!-- BOX 1: Ввести параметры -->
+    <rect x="80" y="86" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="106" text-anchor="middle" font-size="12" fill="#111">Ввести параметры поиска</text>
+    <text x="210" y="123" text-anchor="middle" font-size="12" fill="#111">(тип, сумма, срок, взнос)</text>
+
+    <line x1="210" y1="134" x2="210" y2="160" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></line>
+
+    <!-- DIAMOND: Есть предложения? centre=(210,198) -->
+    <polygon points="210,162 300,198 210,234 120,198" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></polygon>
+    <text x="210" y="194" text-anchor="middle" font-size="12" fill="#111">Есть</text>
+    <text x="210" y="210" text-anchor="middle" font-size="12" fill="#111">предложения?</text>
+
+    <!-- НЕТ: right(300,198) → x=374 → y=276 → x=342
+         затем box Расширить: 230,258 w=112 h=44
+         из box: bottom(286,302) → x=286,330 → x=394,330 → x=394,110 → x=342,110 (назад к box1) -->
+    <polyline points="300,198 374,198 374,276 342,276" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></polyline>
+    <text x="303" y="191" font-size="11" fill="#555">нет</text>
+
+    <!-- BOX: Расширить x=230..342 y=258..302 -->
+    <rect x="80" y="258" width="260" height="44" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="277" text-anchor="middle" font-size="11" fill="#111">Расширить параметры</text>
+    <text x="210" y="293" text-anchor="middle" font-size="11" fill="#111">поиска</text>
+
+    <!-- петля назад к box1: снизу box расширить → вправо → вверх → к box1 right edge -->
+    <polyline points="210,302 210,334 394,334 394,110 342,110" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></polyline>
+
+    <!-- ДА: left(120,198) → x=44 → y=400 → x=78 -->
+    <polyline points="120,198 44,198 44,400 80,400" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></polyline>
+    <text x="48" y="191" font-size="11" fill="#555">да</text>
+
+    <!-- BOX: Список предложений y=382 -->
+    <rect x="80" y="382" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="402" text-anchor="middle" font-size="12" fill="#111">Просмотреть список</text>
+    <text x="210" y="419" text-anchor="middle" font-size="12" fill="#111">предложений компаний</text>
+
+    <line x1="210" y1="430" x2="210" y2="456" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></line>
+
+    <!-- BOX: Выбрать 2-3 y=458 -->
+    <rect x="80" y="458" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="478" text-anchor="middle" font-size="12" fill="#111">Выбрать 2–3 предложения</text>
+    <text x="210" y="495" text-anchor="middle" font-size="12" fill="#111">и нажать «Сравнить»</text>
+
+    <line x1="210" y1="506" x2="210" y2="532" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></line>
+
+    <!-- BOX: Таблица сравнения y=534 -->
+    <rect x="80" y="534" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="554" text-anchor="middle" font-size="12" fill="#111">Просмотреть таблицу</text>
+    <text x="210" y="571" text-anchor="middle" font-size="12" fill="#111">сравнения условий</text>
+
+    <line x1="210" y1="582" x2="210" y2="608" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></line>
+
+    <!-- BOX: Выбрать лучший y=610 -->
+    <rect x="80" y="610" width="260" height="48" rx="3" fill="#e8e8e8" stroke="#aaa" stroke-width="1.2"></rect>
+    <text x="210" y="630" text-anchor="middle" font-size="12" fill="#111">Выбрать лучший вариант</text>
+    <text x="210" y="647" text-anchor="middle" font-size="12" fill="#111">и перейти к заявке</text>
+
+    <line x1="210" y1="658" x2="210" y2="684" stroke="#555" stroke-width="1.4" marker-end="url(#a3)"></line>
+
+    <!-- КОНЕЦ -->
+    <ellipse cx="210" cy="708" rx="64" ry="24" fill="#e2e2e2" stroke="#999" stroke-width="1.3"></ellipse>
+    <text x="210" y="713" text-anchor="middle" font-size="13" fill="#111">Конец</text>
+  </svg>
+</div>
+
+
+
+</body></html>
